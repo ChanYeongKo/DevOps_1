@@ -158,14 +158,20 @@ void LineDetector::image_callback(const sensor_msgs::msg::CompressedImage::Share
     cv::Mat result_view = roi.clone();
     cv::cvtColor(result_view, result_view, cv::COLOR_GRAY2BGR);
 
-    // 타겟 라인만 빨강으로 표시
-    if (target_idx != -1) {
-        int left   = stats.at<int>(target_idx, 0);
-        int top    = stats.at<int>(target_idx, 1);
-        int width  = stats.at<int>(target_idx, 2);
-        int height = stats.at<int>(target_idx, 3);
-        cv::rectangle(result_view, cv::Rect(left, top, width, height), cv::Scalar(0, 0, 255), 2);
-        cv::circle(result_view, tmp_pt_, 5, cv::Scalar(0, 0, 255), -1);
+    // 타겟 라인 = 빨강, 나머지 인식된 성분 = 파랑
+    for (int i = 1; i < cnt; i++) {
+        int area = stats.at<int>(i, 4);
+        if (area > 100) {
+            int left   = stats.at<int>(i, 0);
+            int top    = stats.at<int>(i, 1);
+            int width  = stats.at<int>(i, 2);
+            int height = stats.at<int>(i, 3);
+            int x = cvRound(centroids.at<double>(i, 0));
+            int y = cvRound(centroids.at<double>(i, 1));
+            cv::Scalar color = (i == target_idx) ? cv::Scalar(0, 0, 255) : cv::Scalar(255, 0, 0);
+            cv::rectangle(result_view, cv::Rect(left, top, width, height), color, 2);
+            cv::circle(result_view, cv::Point(x, y), 5, color, -1);
+        }
     }
 
     cv::imshow("frame_color", frame_color);
