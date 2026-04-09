@@ -2,6 +2,11 @@
 ```
 https://www.youtube.com/shorts/EGbEtkZMm98
 ```
+# 실행 영상
+```
+https://github.com/user-attachments/assets/b7a5bc31-e3da-4113-af54-26bf848c2df9
+```
+
 # robot view
 ```
 https://youtu.be/oqEtx10QnHs
