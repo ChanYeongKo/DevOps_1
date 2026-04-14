@@ -13,6 +13,7 @@ https://youtu.be/oqEtx10QnHs
 ```
 # 블럭도
 ```
+<img width="1408" height="1466" alt="linetracer블럭도 drawio" src="https://github.com/user-attachments/assets/4f2597ee-15b0-406e-a914-07f765efbcdb" />
 
 ```
 # linetracer_real 패키지 리팩토링 및 코드 라인별 분석
