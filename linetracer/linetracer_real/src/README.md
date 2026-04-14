@@ -1,4 +1,4 @@
-[linetracer_2블럭도.drawio](https://github.com/user-attachments/files/26719407/linetracer_2.drawio)# human view
+# human view
 ```
 https://www.youtube.com/shorts/EGbEtkZMm98
 ```
